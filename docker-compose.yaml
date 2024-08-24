@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  goflipdot-server:
+    build: .
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./config.ini:/root/config.ini
+    devices:
+      - "/dev/ttyUSB0:/dev/ttyUSB0"
+    environment:
+      - TZ=America/Chicago
+    restart: unless-stopped
